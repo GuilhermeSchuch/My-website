@@ -15,6 +15,18 @@ body {
   background-color: transparent;
 }
 
+.my-career-container,
+.my-projects-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3vh 3vw;
+}
+
+.my-career-title-container,
+.my-projects-title-container {
+  text-align: center;
+}
+
 /* Theme */
 .h1 {
   font-size: 3rem;

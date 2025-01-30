@@ -1,14 +1,25 @@
 // CSS
 import "./HomePage.css";
 
-// Icons
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// Hooks
+import { useRef } from "react";
+
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ReactTypingEffect from "react-typing-effect";
 
 // Components
-import Career from "@components/Career";
-import ReactTypingEffect from 'react-typing-effect';
+import { Career, ProjectCard } from "@components/index";
 
-const HomePage = () => {
+// Data
+import projects from "../data";
+
+const HomePage = () => {  
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToProjects = () => {
+    projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="main-container">
       <div className="top-site-container">
@@ -19,32 +30,23 @@ const HomePage = () => {
             <ReactTypingEffect
               text={["create stuff.", "bring ideas to life."]}
               typingDelay={1000}
-              displayTextRenderer={(text: string, index: number) => {
-                return (
-                  <span className="secundary-text-color">
-                    {text.split('').map((char, index) => {
-                      const key = `${index}`;
-                      return (
-                        <span
-                          key={key}
-                        >{char}</span>
-                      );
-                    })}
-                  </span>
-                );
-              }}
+              displayTextRenderer={(text: string) => (
+                <span className="secundary-text-color">
+                  {text.split("").map((char, index) => (
+                    <span key={index}>{char}</span>
+                  ))}
+                </span>
+              )}
             />
           </h2>
         </div>
 
-        <div className="top-site-image-container">
-
-        </div>
+        <div className="top-site-image-container"></div>
 
         <div className="top-site-see-projects-button">
-          <button className="cleared-button">
+          <button className="cleared-button" onClick={scrollToProjects}>
             <span>See projects</span>
-            <KeyboardArrowDownIcon fontSize="large"/>
+            <KeyboardArrowDownIcon fontSize="large" />
           </button>
         </div>
       </div>
@@ -53,13 +55,24 @@ const HomePage = () => {
         <div className="my-career-title-container">
           <h1 className="h1 primary-text-color">My career</h1>
         </div>
-
         <div className="my-career-content-container">
-          <Career />    
+          <Career />
+        </div>
+      </div>
+      
+      <div className="my-projects-container" ref={projectsRef}>
+        <div className="my-projects-title-container">
+          <h1 className="h1 primary-text-color">My projects</h1>
+        </div>
+
+        <div className="my-projects-content">
+          {projects && projects.map((project) => (
+            <ProjectCard key={project.id} data={project} />
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
