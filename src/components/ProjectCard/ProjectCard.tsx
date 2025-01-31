@@ -3,6 +3,7 @@ import "./ProjectCard.css";
 
 // Hooks
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -11,6 +12,8 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { motion, useInView } from "framer-motion";
 
 const ProjectCard = ({ data }: any) => {
+  const navigate = useNavigate();  
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -20,7 +23,7 @@ const ProjectCard = ({ data }: any) => {
         window.open(link)
       }
       else if(type === "see-more"){
-        window.location.href = link;
+        navigate(link);
       }
     }
   }
@@ -48,7 +51,7 @@ const ProjectCard = ({ data }: any) => {
             whileHover={{ scale: 1.1, color: "#BB2BCB" }}
             whileTap={{ scale: 0.95 }}
             className="cleared-button"
-            onClick={() => handleLinks(data.github, "see-more")}
+            onClick={() => handleLinks(`/project/${data.id}`, "see-more")}
           >
             <ArrowOutwardIcon />
             <span>See more</span>

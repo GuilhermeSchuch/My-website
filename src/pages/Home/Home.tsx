@@ -1,27 +1,46 @@
 // CSS
-import "./HomePage.css";
+import "./Home.css";
 
 // Hooks
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
+// Icons
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 import ReactTypingEffect from "react-typing-effect";
 
 // Components
-import { Career, ProjectCard } from "@components/index";
+import { Career, ProjectCard, Footer } from "@components/index";
 
 // Data
-import projects from "../data";
+import projects from "../../data";
 
-const HomePage = () => {  
+interface Project {
+  id: number;
+  title: string;
+  tags: string;
+  image: string;
+  github: string | null;
+}
+
+const Home = () => {
+  const [projectsData, setProjectsData] = useState<Project[]>([]);
+
   const projectsRef = useRef<HTMLDivElement | null>(null);
+  const topSiteRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToProjects = () => {
     projectsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    if(projects) {
+      setProjectsData(projects);
+    }
+  }, [])
+
   return (
-    <div className="main-container">
+    <div className="main-container" ref={topSiteRef}>
       <div className="top-site-container">
         <div className="top-site-introduction">
           <h1 className="h1 primary-text-color">Hi, I'm Guilherme Schuch</h1>
@@ -66,13 +85,15 @@ const HomePage = () => {
         </div>
 
         <div className="my-projects-content">
-          {projects && projects.map((project) => (
+          {projectsData && projectsData.map((project) => (
             <ProjectCard key={project.id} data={project} />
           ))}
         </div>
       </div>
+
+      <Footer ref={topSiteRef} />
     </div>
   );
 };
 
-export default HomePage;
+export default Home;
