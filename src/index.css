@@ -55,6 +55,40 @@ body {
   color: #FFFFFF;
 }
 
+/* Layout */
+.my-1 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.mt-2 {
+  margin-top: 2vh;
+}
+
+.mb-1 {
+  margin-bottom: 1vh;
+}
+
+.ms-1 {
+  margin-left: 1vw;
+}
+
+.ms-2 {
+  margin-left: 2vw;
+}
+
+.ms-3 {
+  margin-left: 3vw;
+}
+
+.ms-4 {
+  margin-left: 4vw;
+}
+
+.ms-5 {
+  margin-left: 5vw;
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
