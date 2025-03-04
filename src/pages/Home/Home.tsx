@@ -10,7 +10,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ReactTypingEffect from "react-typing-effect";
 
 // Components
-import { Career, ProjectCard, Footer } from "@components/index";
+import {
+  Career,
+  ProjectCard,
+  Footer,
+} from "@components/index";
 
 // Data
 import projects from "../../data";
@@ -70,7 +74,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="my-career-container">
+      <div id="my-career" className="my-career-container">
         <div className="my-career-title-container">
           <h1 className="h1 primary-text-color">My career</h1>
         </div>
@@ -79,7 +83,7 @@ const Home = () => {
         </div>
       </div>
       
-      <div className="my-projects-container" ref={projectsRef}>
+      <div id="my-projects" className="my-projects-container" ref={projectsRef}>
         <div className="my-projects-title-container">
           <h1 className="h1 primary-text-color">My projects</h1>
         </div>

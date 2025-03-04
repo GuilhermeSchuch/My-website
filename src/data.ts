@@ -3,7 +3,7 @@ const projects = [
     id: 1,
     title: "Jada Mod Manager",
     tags: "Software",
-    image: "src/assets/projects/jada.png",
+    image: "/cards/jada.png",
     features: ["Mod management", "Dashboard", "Games presets", "Game management"],
     techs: [
       {name: "React", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
@@ -16,7 +16,7 @@ const projects = [
     id: 2,
     title: "Self car wash system",
     tags: "Web App, Freelance",
-    image: "src/assets/projects/selfcarwash.webp",
+    image: "/cards/selfcarwash.webp",
     features: [
       "Customer management",
       "Employee management",
@@ -36,7 +36,7 @@ const projects = [
     id: 3,
     title: "Listinha",
     tags: "Mobile, Android",
-    image: "src/assets/projects/listinha.png",
+    image: "/cards/listinha.png",
     features: ["List management", "Support for 3 languages"],
     techs: [
       {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://reactnative.dev"},
