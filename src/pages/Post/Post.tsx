@@ -203,11 +203,14 @@ const Post = () => {
                   else if (pContent.type === "image") {
                     return <img key={pIndex} src={ pContent.content } />;
                   }
+                  else if (pContent.type === "bold") {
+                    return <b>{ pContent.content }</b>;
+                  }
                 })}
               </p>
             </motion.div>
           ))}
-        </div>;
+        </div>
 
         <div className="post-bottom-container">
           <p>Posted on { post?.date } by { post?.author }</p>

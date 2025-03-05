@@ -39,6 +39,7 @@ const Header = () => {
     else if (section.type === "external") {
       setActive(section.id);
       navigate(`/${section.id}`);
+      window.scrollTo(0, 0);
     }
   };
   
@@ -63,7 +64,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleAutoScroll = () => {
-      console.log("active", active);
+      // console.log("active", active);
       
       let currentSection = null;
 

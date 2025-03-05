@@ -113,6 +113,10 @@ const posts = [
               content: ", press enter after typing."
             },
             {
+              type: "break",
+              content: "",
+            },
+            {
               type: "image",
               content: "/posts/driver.webp"
             },
@@ -157,6 +161,10 @@ const posts = [
             {
               type: "text",
               content: "Right click on the game -> Properties -> Installed Files -> Verify game file integrity. If the problem is not resolved, try reinstalling the game."
+            },
+            {
+              type: "break",
+              content: "",
             },
             {
               type: "image",
@@ -258,6 +266,10 @@ const posts = [
               content: " in the field as shown in the image below and press enter."
             },
             {
+              type: "break",
+              content: "",
+            },
+            {
               type: "image",
               content: "/posts/tdr.webp"
             },
@@ -276,6 +288,10 @@ const posts = [
             {
               type: "text",
               content: ". After naming it, double-click on it, assign the value 10 and classify it as Decimal."
+            },
+            {
+              type: "break",
+              content: "",
             },
             {
               type: "image",
@@ -309,22 +325,168 @@ const posts = [
       keywords: "D3D Device being lost, Unreal Engine error, gaming issues, DirectX error, game crashes"
     },
     content: {
-      topics: ["Update Drivers"],
+      topics: ["Driver removal", "Driver Update"],
       block: [
         {
-          title: "Update Drivers",
+          title: "Driver removal",
           paragraph: [
             {
               type: "text",
-              content: "Keeping your computer's drivers out of date can influence gaming performance and even cause problems, use"
+              content: "For this first step, "
+            },
+            {
+              type: "bold",
+              content: "go to device manager ",
+            },
+            {
+              type: "text",
+              content: "the quickest way to access is by clicking respectively, ",
+            },
+            {
+              type: "code",
+              content: "WIN + X",
+            },
+            {
+              type: "text",
+              content: ", after the menu opens, click on Device Manager.",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "image",
+              content: "/posts/device-manager.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "After clicking, your computer's drivers menu will open, select all your audio drivers (except the Realtek one) and click uninstall.",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "image",
+              content: "/posts/audio-drivers.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "After uninstalling all your audio drivers, restart your computer and proceed to the next step.",
+            },
+          ]
+        },
+        {
+          title: "Driver Update",
+          paragraph: [
+            {
+              type: "text",
+              content: "For this step, right-click on the realtek driver, and click update."
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "image",
+              content: "/posts/update-driver.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "After clicking on update, two options will appear, one to install the driver via the internet and another to ",
+            },
+            {
+              type: "bold",
+              content: "install the driver locally",
+            },
+            {
+              type: "text",
+              content: ", from your computer, you must click on local installation.",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "When you do this, a field will appear for you to choose ",
+            },
+            {
+              type: "bold",
+              content: "where it is located.",
+            },
+            {
+              type: "text",
+              content: " your version of realtek, which can be downloaded ",
             },
             {
               type: "link",
-              content: "Driver Booster",
-              link: "https://www.iobit.com/pt/driver-booster.php"
+              content: "here",
+              link: "https://drive.google.com/uc?export=download&id=1pNme7vi0KW47uqhGWuyyMBKnNtTGjLPP"
+            },
+            {
+              type: "text",
+              content: " you will need a program to unzip the file, such as ",
+            },
+            {
+              type: "link",
+              content: "Winrar",
+              link: "https://www.win-rar.com/start.html?&L=9"
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "image",
+              content: "/posts/location-driver.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "In the end, the path must be something ",
+            },
+            {
+              type: "bold",
+              content: "similar",
+            },
+            {
+              type: "text",
+              content: " to this image. After selecting the path, you can proceed with the installation/upgrade.",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "By doing these simple steps, you should ",
+            },
+            {
+              type: "bold",
+              content: "restart your computer",
+            },
+            {
+              type: "text",
+              content: " and everything will be back to normal.",
             },
           ]
-        }
+        },
       ]
     }
   },

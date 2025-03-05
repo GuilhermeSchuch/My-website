@@ -17,6 +17,10 @@
   font-size: 20px;
 }
 
+.post-top-text-container img {
+  max-width: 100%;
+}
+
 .post-top-image-container {
   display: flex;
   justify-content: center;
@@ -72,10 +76,12 @@
 .post-block code {
   font-weight: 500;
   font-style: italic;
+  word-break: break-all;
 }
 
 .post-block img {
   margin-top: 30px;
+  max-width: 100%;
 }
 
 .post-bottom-container {
@@ -85,4 +91,10 @@
   justify-content: end;
   color: #A6A6A6;
   gap: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  .post-container {
+    padding: 0 10vw;
+  }
 }
