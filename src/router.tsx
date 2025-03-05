@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 // Pages
 import {
   HomePage,
   ProjectPage,
   BlogPage,
+  PostPage,
 } from "@pages/index";
 
 // Components
@@ -12,14 +14,17 @@ import { Header } from "./components";
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/project/:id" element={<ProjectPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/project/:id" element={<ProjectPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<PostPage />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 };
 

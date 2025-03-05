@@ -7,6 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';
+import EmailIcon from '@mui/icons-material/Email';
 
 import { forwardRef } from "react";
 
@@ -79,6 +80,11 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                   <GitHubIcon />
                   <span>@GuilhermeSchuch</span>
                 </li>
+
+                <li>
+                  <EmailIcon />
+                  <span>schuchsistemas@gmail.com</span>
+                </li>
               </ul>
             </div>
           </div>
@@ -93,7 +99,12 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 <li onClick={() => handleLinks("/project/1", "internal-link")}>
                   <LinkIcon className="flip-link-icon"/>
                   <span>My best project</span>
-                </li>              
+                </li>
+
+                <li onClick={() => handleLinks("/blog", "internal-link")}>
+                  <LinkIcon className="flip-link-icon"/>
+                  <span>My Blog</span>
+                </li>
               </ul>
             </div>
           </div>

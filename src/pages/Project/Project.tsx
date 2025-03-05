@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import { VideoPlayer } from "@components/index";
 
 // Data
-import projects from "../../data";
+import { projects } from "../../data";
 
 interface Tech {
   name: string;
@@ -28,7 +28,6 @@ interface Project {
   techs: Tech[];
   github: string | null;
 }
-
 
 const Project = () => {
   const [project, setProject] = useState<Project | null>(null);
