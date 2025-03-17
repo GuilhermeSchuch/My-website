@@ -2,7 +2,13 @@ const projects = [
   {
     id: 1,
     title: "Jada Mod Manager",
+    url: "Jada-Mod-Manager",
     tags: "Software",
+    metaTags: {
+      title: "Jada Mod Manager",
+      description: "Easily manage, install, and uninstall mods for your games with Jada. Simplify your modding experience.",
+      keywords: "Jada Mod Manager, Jada, Mod Manager, Mods for games, Mods"
+    },
     image: "/cards/jada.png",
     features: ["Mod management", "Dashboard", "Games presets", "Game management"],
     techs: [
@@ -15,7 +21,13 @@ const projects = [
   {
     id: 2,
     title: "Self car wash system",
+    url: "Self-car-wash-system",
     tags: "Web App, Freelance",
+    metaTags: {
+      title: "Self car wash system",
+      description: "",
+      keywords: ""
+    },
     image: "/cards/selfcarwash.webp",
     features: [
       "Customer management",
@@ -35,7 +47,13 @@ const projects = [
   {
     id: 3,
     title: "Listinha",
+    url: "Listinha",
     tags: "Mobile, Android",
+    metaTags: {
+      title: "Listinha",
+      description: "",
+      keywords: ""
+    },
     image: "/cards/listinha.png",
     features: ["List management", "Support for 3 languages"],
     techs: [
@@ -50,9 +68,11 @@ const posts = [
   {
     id: 1,
     image: "/posts/d3d-device-being-lost.webp",
+    imageHash: "L34_tit7xuRj%MxuRjt7~qM{t7ay",
     date: "Nov 03, 2023",
     author: "Guilherme Schuch",
     title: "D3D Device being lost",
+    url: "D3D-Device-being-lost",
     subtitle: "An unpleasant and uncommon error that can occur in games, mainly created with the Unreal Engine. I'm not a professional, but if you're here, you're going through the same problem I went through.",
     tags: ["Tech", '-', "Error"],
     metaTags: {
@@ -314,15 +334,17 @@ const posts = [
   {
     id: 2,
     image: "/posts/realtek.webp",
+    imageHash: "LLFsWEkC01bIRiaea#j[DiWC~VoL",
     date: "Oct 05, 2024",
     author: "Guilherme Schuch",
     title: "Error Code 0001 Realtek",
+    url: "Error-Code-0001-Realtek",
     subtitle: "A not very common error that occurs on computers that have conflicts between drivers or that have been recently formatted. This error, luckily, has a simple solution.",
     tags: ["Tech", '-', "Error", '-', "Driver"],
     metaTags: {
-      title: "D3D Device Being Lost - Fixing Unreal Engine Errors",
-      description: "Learn how to fix the D3D Device Being Lost error in Unreal Engine. Troubleshooting tips and solutions for gamers and developers.",
-      keywords: "D3D Device being lost, Unreal Engine error, gaming issues, DirectX error, game crashes"
+      title: "Fix Error Code 0001 Realtek",
+      description: "Learn how to fix Error Code 0001 Realtek. Troubleshooting tips and solutions for drivers in your computer.",
+      keywords: "Error Code 0001 Realtek, Realtek, driver issues"
     },
     content: {
       topics: ["Driver removal", "Driver Update"],

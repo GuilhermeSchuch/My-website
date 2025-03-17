@@ -1,0 +1,11 @@
+.footer-copyright {
+  background-color: #0D0D0D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-copyright p {
+  padding: 10px;
+  color: #A6A6A6;
+}

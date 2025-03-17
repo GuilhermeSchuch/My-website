@@ -14,9 +14,10 @@ import { forwardRef } from "react";
 // Hooks
 import { useNavigate } from "react-router-dom";
 
-const Footer = forwardRef<HTMLDivElement>((props, ref) => {
-  const currentYear = new Date().getFullYear();
+// Components
+import TinyFooter from "@components/TinyFooter/TinyFooter";
 
+const Footer = forwardRef<HTMLDivElement>((props, ref) => {  
   const navigate = useNavigate();
 
   const handleLinks = (link: string, type: string) => {
@@ -111,9 +112,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
       </div>
 
-      <div className="footer-copyright">
-        <p>© { currentYear } Guilherme Schuch</p>
-      </div>
+      <TinyFooter />
     </>
   )
 })

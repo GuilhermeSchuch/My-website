@@ -15,6 +15,14 @@ body {
   background-color: transparent;
 }
 
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 28px;
+}
+
 .my-career-container,
 .my-projects-container {
   display: flex;

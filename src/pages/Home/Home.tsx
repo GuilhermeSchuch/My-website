@@ -47,7 +47,8 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Guilherme Schuch</title>
+        <title>Guilherme Schuch</title>        
+        <meta name="keywords" content="Guilherme Schuch, Schuch, Developer, Dev, Jada" />
       </Helmet>
 
       <div className="main-container" ref={topSiteRef}>

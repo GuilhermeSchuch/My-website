@@ -51,7 +51,7 @@ const ProjectCard = ({ data }: any) => {
             whileHover={{ scale: 1.1, color: "#BB2BCB" }}
             whileTap={{ scale: 0.95 }}
             className="cleared-button"
-            onClick={() => handleLinks(`/project/${data.id}`, "see-more")}
+            onClick={() => handleLinks(`/project/${data.url}`, "see-more")}
           >
             <ArrowOutwardIcon />
             <span>See more</span>

@@ -19,9 +19,9 @@ const AppRouter = () => {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/project/:id" element={<ProjectPage />} />
+          <Route path="/project/:title" element={<ProjectPage />} />
           <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:id" element={<PostPage />} />
+          <Route path="/blog/:title" element={<PostPage />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
