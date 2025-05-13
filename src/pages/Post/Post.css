@@ -26,8 +26,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+}
+
+.post-top-image-container p {
   color: #FFFFFF;
   font-size: 20px;
+  line-height: 1.5;
 }
 
 .post-topics {
@@ -68,6 +72,7 @@
 .post-block p {
   font-size: 18px;
   color: #EEEEEE;
+  line-height: 1.5;
 }
 
 .post-block a {

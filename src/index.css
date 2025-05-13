@@ -9,6 +9,10 @@ body {
   font-family: "JetBrains Mono", sans-serif;
 }
 
+code {
+  color: #4b8abe !important;
+}
+
 .cleared-button {
   outline: none;
   border: none;

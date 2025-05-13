@@ -4,6 +4,7 @@ import "./Header.css";
 // Hooks
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { motion } from "framer-motion";
 
@@ -15,11 +16,13 @@ interface Section {
 }
 
 const Header = () => {
+  const { t } = useTranslation();
+
   const [active, setActive] = useState<string | null>(null);
 
   const menus = [
-    {id: "my-career", name: "My career", offset: 70, type: "internal"},
-    {id: "my-projects", name: "My projects", offset: 50, type: "internal"},
+    {id: "my-career", name: t("My career"), offset: 70, type: "internal"},
+    {id: "my-projects", name: t("My projects"), offset: 50, type: "internal"},
     {id: "blog", name: "Blog", offset: 0, type: "external"}
   ];
 
@@ -42,7 +45,6 @@ const Header = () => {
       window.scrollTo(0, 0);
     }
   };
-  
 
   const scrollToSection = (section: Section) => {
     const sectionElement = document.getElementById(section.id);

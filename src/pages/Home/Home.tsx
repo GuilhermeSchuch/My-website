@@ -3,6 +3,7 @@ import "./Home.css";
 
 // Hooks
 import { useRef, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 // Icons
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -29,10 +30,17 @@ interface Project {
 }
 
 const Home = () => {
+  const { i18n, t } = useTranslation();
+
   const [projectsData, setProjectsData] = useState<Project[]>([]);
+  const [selectedLanguage, setSelectedLanguage] = useState(navigator.language);
 
   const projectsRef = useRef<HTMLDivElement | null>(null);
   const topSiteRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    i18n.changeLanguage(navigator.language);
+  }, [])
 
   const scrollToProjects = () => {
     projectsRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -54,11 +62,11 @@ const Home = () => {
       <div className="main-container" ref={topSiteRef}>
         <div className="top-site-container">
           <div className="top-site-introduction">
-            <h1 className="h1 primary-text-color">Hi, I'm Guilherme Schuch</h1>
+            <h1 className="h1 primary-text-color">{ t("Hi, I'm Guilherme Schuch") }</h1>
             <h2 className="primary-text-color">
-              <span>I like to </span>
+              <span>{ t("I like to ") }</span>
               <ReactTypingEffect
-                text={["create stuff.", "bring ideas to life."]}
+                text={selectedLanguage === "pt-BR" ? ["criar coisas.", "dar vida às ideias."] : ["create stuff.", "bring ideas to life."]}                
                 typingDelay={1000}
                 displayTextRenderer={(text: string) => (
                   <span className="secundary-text-color">
@@ -75,7 +83,7 @@ const Home = () => {
 
           <div className="top-site-see-projects-button">
             <button className="cleared-button" onClick={scrollToProjects}>
-              <span>See projects</span>
+              <span>{ t("See projects") }</span>
               <KeyboardArrowDownIcon fontSize="large" />
             </button>
           </div>
@@ -83,7 +91,7 @@ const Home = () => {
 
         <div id="my-career" className="my-career-container">
           <div className="my-career-title-container">
-            <h1 className="h1 primary-text-color">My career</h1>
+            <h1 className="h1 primary-text-color">{ t("My career") }</h1>
           </div>
           <div className="my-career-content-container">
             <Career />
@@ -92,7 +100,7 @@ const Home = () => {
         
         <div id="my-projects" className="my-projects-container" ref={projectsRef}>
           <div className="my-projects-title-container">
-            <h1 className="h1 primary-text-color">My projects</h1>
+            <h1 className="h1 primary-text-color">{ t("My projects") }</h1>
           </div>
 
           <div className="my-projects-content">

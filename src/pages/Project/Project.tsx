@@ -4,13 +4,14 @@ import "./Project.css";
 // Hooks
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { motion } from "framer-motion";
 
 import { VideoPlayer } from "@components/index";
 
 // Data
-import { projects } from "../../data";
+import { projects, projectsBR } from "../../data";
 
 // Meta tags
 import { Helmet } from "react-helmet-async";
@@ -47,11 +48,18 @@ const Project = () => {
   const [project, setProject] = useState<Project | null>(null);
 
   const { title } = useParams();  
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
-    if(projects && title) {
-      const project = projects.find((item) => item.url === title);
-      if (project) setProject(project);
+    if(title) {
+      if(i18n.language === "pt-BR") {
+        const project = projectsBR.find((item) => item.url === title);
+        if (project) setProject(project);
+      }
+      else {
+        const project = projects.find((item) => item.url === title);
+        if (project) setProject(project);
+      }
     }
   }, [project])
 
@@ -78,7 +86,7 @@ const Project = () => {
               <div className="project-side-container">
                 <div className="project-side-item">
                   <div className="project-side-item-title">
-                    <h2 className="h2 primary-text-color">Features</h2>
+                    <h2 className="h2 primary-text-color">{ t("Features") }</h2>
                   </div>
 
                   <div className="project-side-content">
@@ -104,7 +112,7 @@ const Project = () => {
                 
                 <div className="project-side-item">
                   <div className="project-side-item-title">
-                    <h2 className="h2 primary-text-color">Techs</h2>
+                    <h2 className="h2 primary-text-color">{ t("Techs") }</h2>
                   </div>
 
                   <div className="project-side-content">
@@ -147,19 +155,19 @@ const Project = () => {
                 {project?.id === 1 && (
                   <>
                     <p className="tertiary-text-color">
-                      Jada Mod manager is, well, a mod manager, but what make it <u>diferent from the others</u>?
-                      Most of the mod managers will ask you to manage directories, folder strucuture and file compression/decompression while Jada 
-                      will only ask you to select the mods and done, thats it, Jada will do the rest.
+                      { t("Jada Mod Manager is an") } <b>User-friendly</b> { t("mod manager,") } { t("but what make it") } <u>{ t("diferent from the others") }</u>?
+                      { t("Most of the mod managers will ask you to manage directories, folder strucuture and file compression/decompression while Jada") } 
+                      { t("will only ask you to select the mods you want and done, mods installed, Jada did all the work.") }
                     </p>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Versions:</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
 
                     <ul className="tertiary-text-color ms-3">
-                      <li>V1 - Oct 22, 2024</li>
-                      <li>V2 - In progress</li>
+                      <li>V1 - { t("Oct 22") }, 2024</li>
+                      <li>V2 - { t("In progress") }</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Demonstration (Pt-Br):</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
                     <VideoPlayer videoURL={"/projects/Jada.mp4"} />
                   </>
                 )}
@@ -167,16 +175,16 @@ const Project = () => {
                 {project?.id === 2 && (
                   <>
                     <p className="tertiary-text-color">
-                      A complete <u>freelance</u> system for a car wash made in 2023, the whole project took 3 months to finish.
+                      { t("A complete") } <u>freelance</u> { t("system for a car wash made in 2023, the whole project took 3 months to finish.") }
                     </p>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Versions:</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
 
                     <ul className="tertiary-text-color ms-3">
-                      <li>V1 - Sep 5, 2023</li>
+                      <li>V1 - { t("Sep 5") }, 2023</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Demonstration (Pt-Br):</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
                     <VideoPlayer videoURL={"/projects/AutoLavagemWebsite.mp4"} />
                   </>
                 )}
@@ -184,16 +192,16 @@ const Project = () => {
                 {project?.id === 3 && (
                   <>
                     <p className="tertiary-text-color">
-                      This APP allows the user to create, manage and customize shopping lists and daily tasks with ease.
+                      { t("This APP allows the user to create, manage and customize shopping lists and daily tasks with ease.") }
                     </p>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Versions:</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
 
                     <ul className="tertiary-text-color ms-3">
-                      <li>V1 - Dec 3, 2023</li>
+                      <li>V1 - { t("Dec 3") }, 2023</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">Demonstration (Pt-Br):</p>
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
                     <img src="/projects/Listinha.gif" alt="" width={300}/>
                   </>
                 )}

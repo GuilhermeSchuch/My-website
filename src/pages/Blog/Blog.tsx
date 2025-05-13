@@ -2,11 +2,12 @@
 import "./Blog.css";
 
 // Data
-import { posts } from "../../data";
+import { posts, postsBR } from "../../data";
 
 // Hooks
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
@@ -16,14 +17,41 @@ import { BlurhashCanvas } from "react-blurhash";
 import { TinyFooter } from "@components/index";
 
 const Blog = () => {
-  const [active, setActive] = useState("all-posts");
+  const [active, setActive] = useState("all-posts");  
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const navigate = useNavigate();
+  const { i18n, t } = useTranslation();
 
-  const handleSubHeader = (menu: string) => {
-    setActive(menu);
-  }
+  const [filteredPosts, setFilteredPosts] = useState(
+    (i18n.language === "pt-BR" ? postsBR : posts) || []
+  );
+
+  const handleSubHeader = (category: string) => {
+    setActive(category);
+  
+    if(category === "all-posts") {
+      setFilteredPosts(
+        i18n.language === "pt-BR" ? postsBR : posts
+      );
+    }
+    else {
+      let filtered = [];
+
+      if(i18n.language === "pt-BR") {
+        filtered = postsBR.filter((post) =>
+          post.tags.includes(category)
+        );
+      }
+      else {
+        filtered = posts.filter((post) =>
+          post.tags.includes(category)
+        );
+      }
+
+      setFilteredPosts(filtered);
+    }
+  };
 
   return (
     <>
@@ -35,7 +63,7 @@ const Blog = () => {
 
       <div id="blog" className="blog-container">
         <div className="top-blog-container">
-          <h1 className="h1 primary-text-color">Discover</h1>
+          <h1 className="h1 primary-text-color">{ t("Discover") }</h1>
         </div>
 
         <div className="sub-header-blog-container">
@@ -49,7 +77,7 @@ const Blog = () => {
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  All posts
+                  { t("All posts") }
                 </motion.button>
 
                 {active === "all-posts" && (
@@ -64,16 +92,37 @@ const Blog = () => {
 
               <li>
                 <motion.button
-                  onClick={() => handleSubHeader("tech")}
+                  onClick={() => handleSubHeader(t("Tech"))}
                   className="cleared-button"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  Tech
+                  { t("Tech") }
                 </motion.button>
 
-                {active === "tech" && (
+                {active === t("Tech") && (
+                  <motion.div
+                    className="active-header-button"
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </li>
+
+              <li>
+                <motion.button
+                  onClick={() => handleSubHeader(t("Games"))}
+                  className="cleared-button"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  { t("Games") }
+                </motion.button>
+
+                {active === t("Games") && (
                   <motion.div
                     className="active-header-button"
                     initial={{ opacity: 0, width: 0 }}
@@ -92,7 +141,7 @@ const Blog = () => {
         </div>
 
         <div className="blog-content-container">
-          {posts && posts.map((post) => (
+          {filteredPosts && filteredPosts.map((post) => (
             <motion.div
               key={post.id}
               className="blog-content-item"

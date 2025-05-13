@@ -4,6 +4,7 @@ import "./ProjectCard.css";
 // Hooks
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Icons
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -16,6 +17,8 @@ const ProjectCard = ({ data }: any) => {
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const { t } = useTranslation();
 
   const handleLinks = (link: string, type: string) => {
     if(link !== null) {
@@ -42,7 +45,7 @@ const ProjectCard = ({ data }: any) => {
 
       <div className="project-content">
         <div className="project-content-text">
-          <h3>{ data.title }</h3>
+          <h3>{ t(data.title) }</h3>
           <p>{ data.tags }</p>
         </div>
 
@@ -54,7 +57,7 @@ const ProjectCard = ({ data }: any) => {
             onClick={() => handleLinks(`/project/${data.url}`, "see-more")}
           >
             <ArrowOutwardIcon />
-            <span>See more</span>
+            <span>{ t("See more") }</span>
           </motion.button>
 
           <motion.button

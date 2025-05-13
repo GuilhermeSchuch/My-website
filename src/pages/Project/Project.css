@@ -70,6 +70,10 @@
   padding: 10px 20px;
 }
 
+.project-description-container p {
+  line-height: 1.5;
+}
+
 .project-mid-content-container {
   background-color: #262626;
   margin-top: 5vh;

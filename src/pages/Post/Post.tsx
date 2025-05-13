@@ -2,12 +2,13 @@
 import "./Post.css";
 
 // Data
-import { posts } from "../../data";
+import { posts, postsBR } from "../../data";
 
 // Hooks
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import { motion, useInView } from "framer-motion";
 
@@ -59,14 +60,21 @@ const Post = () => {
   const [post, setPost] = useState<Post | null>(null);
 
   const { title } = useParams();
+  const { i18n, t } = useTranslation();
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if(posts && title) {
-      const post = posts.find((item) => item.url === title);
-      if (post) setPost(post);
+    if(title) {
+      if(i18n.language === "pt-BR") {
+        const post = postsBR.find((item) => item.url === title);
+        if (post) setPost(post);
+      }
+      else {
+        const post = posts.find((item) => item.url === title);
+        if (post) setPost(post);
+      }
 
       window.scrollTo(0, 0);
     }
@@ -181,12 +189,12 @@ const Post = () => {
             </div>
 
             <div className="post-bottom-container">
-              <p>Posted on { post?.date } by { post?.author }</p>
+              <p>{ t("Posted on") } { post?.date } { t("by") } { post?.author }</p>
             </div>
           </>
         ) : (
           <div className="not-found-container">
-            <p>Post not found</p>
+            <p>{ t("Post not found") }</p>
           </div>
         )}
       </div>
