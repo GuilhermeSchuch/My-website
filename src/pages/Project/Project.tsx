@@ -8,8 +8,6 @@ import { useTranslation } from "react-i18next";
 
 import { motion } from "framer-motion";
 
-import { VideoPlayer } from "@components/index";
-
 // Data
 import { projects, projectsBR } from "../../data";
 
@@ -17,7 +15,7 @@ import { projects, projectsBR } from "../../data";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import { TinyFooter } from "@components/index";
+import { TinyFooter, VideoPlayer } from "@components/index";
 
 interface Tech {
   name: string;
@@ -60,6 +58,7 @@ const Project = () => {
         const project = projects.find((item) => item.url === title);
         if (project) setProject(project);
       }
+      window.scrollTo(0, 0);
     }
   }, [project])
 
@@ -155,9 +154,7 @@ const Project = () => {
                 {project?.id === 1 && (
                   <>
                     <p className="tertiary-text-color">
-                      { t("Jada Mod Manager is an") } <b>User-friendly</b> { t("mod manager,") } { t("but what make it") } <u>{ t("diferent from the others") }</u>?
-                      { t("Most of the mod managers will ask you to manage directories, folder strucuture and file compression/decompression while Jada") } 
-                      { t("will only ask you to select the mods you want and done, mods installed, Jada did all the work.") }
+                      { t("Jada Mod Manager is an") } <b>User-friendly</b> { t("mod manager,") } { t("but what make it") } <u>{ t("diferent from the others") }</u>? { t("Most of the mod managers will ask you to manage directories, folder strucuture and file compression/decompression while Jada") } { t("will only ask you to select the mods you want and done, mods installed, Jada did all the work.") }
                     </p>
 
                     <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
@@ -167,8 +164,9 @@ const Project = () => {
                       <li>V2 - { t("In progress") }</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
-                    <VideoPlayer videoURL={"/projects/Jada.mp4"} />
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration") }:</p>
+
+                    <img src="/projects/jada.webp" alt="" />
                   </>
                 )}
 

@@ -5,52 +5,76 @@ import "./Blog.css";
 import { posts, postsBR } from "../../data";
 
 // Hooks
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { BlurhashCanvas } from "react-blurhash";
 
 // Components
 import { TinyFooter } from "@components/index";
 
-const Blog = () => {
-  const [active, setActive] = useState("all-posts");  
-  const [imageLoaded, setImageLoaded] = useState(false);
+// Icons
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
+const Blog = () => {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
 
+  const [active, setActive] = useState("all-posts");  
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [search, setSearch] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(
     (i18n.language === "pt-BR" ? postsBR : posts) || []
   );
 
+  const [isOpen, setIsOpen] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) inputRef.current?.focus();
+  }, [isOpen]);
+
   const handleSubHeader = (category: string) => {
     setActive(category);
-  
-    if(category === "all-posts") {
-      setFilteredPosts(
-        i18n.language === "pt-BR" ? postsBR : posts
-      );
-    }
-    else {
-      let filtered = [];
+    filterPosts(search, category);
+  };
 
-      if(i18n.language === "pt-BR") {
-        filtered = postsBR.filter((post) =>
-          post.tags.includes(category)
-        );
-      }
-      else {
-        filtered = posts.filter((post) =>
-          post.tags.includes(category)
-        );
-      }
+  const handleSearch = (searchValue: string) => {
+    setSearch(searchValue);
+    filterPosts(searchValue, active);
+  };
 
-      setFilteredPosts(filtered);
+  const filterPosts = (searchText: string, category: string) => {
+    const sourcePosts = i18n.language === "pt-BR" ? postsBR : posts;
+
+    const filtered = sourcePosts.filter((post) => {
+      const matchesCategory = category === "all-posts" || post.tags.includes(category);
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        post.subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+        post.tags.some(tag => tag.toLowerCase().includes(searchText.toLowerCase()));
+
+      return matchesCategory && matchesSearch;
+    });
+
+    setFilteredPosts(filtered);
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (
+      wrapperRef.current &&
+      e.relatedTarget &&
+      wrapperRef.current.contains(e.relatedTarget as Node)
+    ) {
+      return;
     }
+
+    setIsOpen(false);
   };
 
   return (
@@ -136,12 +160,43 @@ const Blog = () => {
           </div>
 
           <div className="sub-header-blog-search">
+            <div className="search-wrapper" ref={wrapperRef}>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    key="input"
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: 200, opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    className="input-container"
+                  >
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      placeholder="Search..."
+                      className="search-input"
+                      value={search}
+                      onChange={(e) => handleSearch(e.target.value)}
+                      onBlur={handleBlur}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
+              <button
+                className="icon-button"
+                onClick={() => setIsOpen((prev) => !prev)}
+                aria-label="Toggle search"
+              >
+                {isOpen ? <CloseIcon /> : <SearchIcon />}
+              </button>
+            </div>
           </div>
         </div>
 
         <div className="blog-content-container">
-          {filteredPosts && filteredPosts.map((post) => (
+          {filteredPosts.length ? filteredPosts.map((post) => (
             <motion.div
               key={post.id}
               className="blog-content-item"
@@ -185,7 +240,14 @@ const Blog = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+          )) : (
+            <>
+              <div className="not-found-container">
+                <p>{ t("No post was found.") }</p>
+              </div>
+            </>
+          )}
+
         </div>
       </div>
 

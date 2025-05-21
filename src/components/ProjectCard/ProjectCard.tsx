@@ -27,6 +27,7 @@ const ProjectCard = ({ data }: any) => {
       }
       else if(type === "see-more"){
         navigate(link);
+        window.scrollTo(0, 0);
       }
     }
   }

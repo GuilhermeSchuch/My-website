@@ -409,7 +409,7 @@ const posts = [
     tags: ["Tech", '-', "Error", '-', "Driver"],
     metaTags: {
       title: "Fix Error Code 0001 Realtek",
-      description: "Learn how to fix Error Code 0001 Realtek. Troubleshooting tips and solutions for drivers in your computer.",
+      description: "Learn how to fix Error Code 0001 Realtek. Troubleshooting tips and solutions for drivers on your computer.",
       keywords: "Error Code 0001 Realtek, Realtek, driver issues"
     },
     content: {
@@ -776,6 +776,192 @@ const posts = [
             {
               type: "text",
               content: ". That's it, you are in the main game's folder, all the mods should be installed here.",
+            },
+          ]
+        },
+      ]
+    }
+  },
+  {
+    id: 4,
+    image: "/posts/headphones/headphones.webp",
+    imageHash: "LPD]F^%1adxtyYSOM|R*~Bslaet7",
+    date: "May 21, 2025",
+    author: "Guilherme Schuch",
+    title: "How to connect two headphones on a PC",
+    url: "How-to-connect-two-headphones-on-a-PC",
+    subtitle: "Learn how to plug two different sound output devices and hear from both of them using Stereo Mix.",
+    tags: ["Tech"],
+    metaTags: {
+      title: "How to connect two headphones on a PC",
+      description: "Learn how to plug two different sound output devices and hear from both of them.",
+      keywords: "Sound output, Headphone, How to connect two headphones on a PC"
+    },
+    content: {
+      topics: ["Stereo Mix"],
+      block: [
+        {
+          title: "Stereo Mix",
+          paragraph: [
+            {
+              type: "text",
+              content: "For the first step, connect both of your headphones on your pc, then open windows menu and search for "
+            },
+            {
+              type: "bold",
+              content: "Change system sounds",
+            },
+            {
+              type: "text",
+              content: ", click on it to open the settings we are going to change.",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/system-sounds.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "Click on the ",
+            },
+            {
+              type: "bold",
+              content: "recording",
+            },
+            {
+              type: "text",
+              content: " tab, ",
+            },
+            {
+              type: "code",
+              content: "right click",
+            },
+            {
+              type: "text",
+              content: " in a empty space and mark ",
+            },
+            {
+              type: "bold",
+              content: "Show Disabled Devices",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/recording.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "By doing this, the ",
+            },
+            {
+              type: "bold",
+              content: "Stereo Mix",
+            },
+            {
+              type: "text",
+              content: " option will now be available. You should ",
+            },
+            {
+              type: "code",
+              content: "right click",
+            },
+            {
+              type: "text",
+              content: " on it and enable this option. After that, ",
+            },
+            {
+              type: "code",
+              content: "right click",
+            },
+            {
+              type: "text",
+              content: " on it again and go to ",
+            },
+            {
+              type: "bold",
+              content: "Properties",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/properties.webp",
+            },
+            {
+              type: "break",
+              content: ".",
+            },
+            {
+              type: "text",
+              content: "A new window to be configured will be opened, you should mark the ",
+            },
+            {
+              type: "bold",
+              content: "Listen to this device",
+            },
+            {
+              type: "text",
+              content: " option and select your seccond headphone in ",
+            },
+            {
+              type: "bold",
+              content: "Playback through this device",
+            },
+            {
+              type: "text",
+              content: ". Now you click on ",
+            },
+            {
+              type: "bold",
+              content: "Apply",
+            },
+            {
+              type: "text",
+              content: " and ",
+            },
+            {
+              type: "bold",
+              content: "OK",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/choose-device.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "Your PC sound should be coming out of both headphones now.",
             },
           ]
         },
@@ -1436,6 +1622,196 @@ const postsBR = [
       ]
     }
   },
+  {
+    id: 4,
+    image: "/posts/headphones/headphones.webp",
+    imageHash: "LPD]F^%1adxtyYSOM|R*~Bslaet7",
+    date: "21 de Mai, 2025",
+    author: "Guilherme Schuch",
+    title: "Como conectar dois fones de ouvido no PC",
+    url: "How-to-connect-two-headphones-on-a-PC",
+    subtitle: "Aprenda a conectar dois dispositivos de saída de som diferentes e ouvir o som em ambos usando o Stereo Mix.",
+    tags: ["Tecnologia"],
+    metaTags: {
+      title: "Como conectar dois fones de ouvido no PC",
+      description: "Aprenda a conectar dois dispositivos de saída de som diferentes e ouvir o som em ambos.",
+      keywords: "Saída de som, Fone de ouvido, Como conectar dois fones de ouvido no PC"
+    },
+    content: {
+      topics: ["Stereo Mix"],
+      block: [
+        {
+          title: "Stereo Mix",
+          paragraph: [
+            {
+              type: "text",
+              content: "No primeiro passo, conecte ambos os fones de ouvido no seu PC, depois abra o menu do Windows e pesquise por "
+            },
+            {
+              type: "bold",
+              content: "Alterar sons do sistema",
+            },
+            {
+              type: "text",
+              content: ", clique para abrir as configurações que vamos modificar.",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/system-sounds.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "Clique na aba ",
+            },
+            {
+              type: "bold",
+              content: "Gravação",
+            },
+            {
+              type: "text",
+              content: ", ",
+            },
+            {
+              type: "code",
+              content: "clique com o botão direito",
+            },
+            {
+              type: "text",
+              content: " em um espaço vazio e marque ",
+            },
+            {
+              type: "bold",
+              content: "Mostrar Dispositivos Desativados",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/recording.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "Ao fazer isso, a opção ",
+            },
+            {
+              type: "bold",
+              content: "Stereo Mix",
+            },
+            {
+              type: "text",
+              content: " ficará visível. Você deve ",
+            },
+            {
+              type: "code",
+              content: "clicar com o botão direito",
+            },
+            {
+              type: "text",
+              content: " sobre ela e ativá-la. Depois disso, ",
+            },
+            {
+              type: "code",
+              content: "clique com o botão direito",
+            },
+            {
+              type: "text",
+              content: " novamente e vá em ",
+            },
+            {
+              type: "bold",
+              content: "Propriedades",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/properties.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "Uma nova janela será aberta, você deve marcar a opção ",
+            },
+            {
+              type: "bold",
+              content: "Ouvir este dispositivo",
+            },
+            {
+              type: "text",
+              content: " e selecionar seu segundo fone de ouvido em ",
+            },
+            {
+              type: "bold",
+              content: "Reproduzir neste dispositivo",
+            },
+            {
+              type: "text",
+              content: ". Agora clique em ",
+            },
+            {
+              type: "bold",
+              content: "Aplicar",
+            },
+            {
+              type: "text",
+              content: " e depois em ",
+            },
+            {
+              type: "bold",
+              content: "OK",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+            {
+              type: "break",
+              content: "1",
+            },
+            {
+              type: "image",
+              content: "/posts/headphones/choose-device.webp",
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "text",
+              content: "O som do seu PC agora deve estar saindo pelos dois fones de ouvido.",
+            },
+          ]
+        },
+      ]
+    }
+  }
 ]
 
 export { projects, projectsBR, posts, postsBR };

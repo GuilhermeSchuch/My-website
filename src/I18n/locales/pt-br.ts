@@ -32,6 +32,7 @@ export default {
     "Versions": "Versões",
     "Sep 5": "05 de Set",
     "Demonstration (Pt-Br)": "Demonstração",
+    "Demonstration": "Demonstração",
     "Dec 3": "03 de Dez",
     "This APP allows the user to create, manage and customize shopping lists and daily tasks with ease.": "Esse aplicativo permite ao usuário criar, gerenciar e customizar listas de compras e/ou tarefas diárias facilmente.",
     "Jada Mod Manager is an": "Jada Mod Manager é um gerenciador de mods",
@@ -48,6 +49,7 @@ export default {
     "All posts": "Todos",
     "Tech": "Tecnologia",
     "Games": "Jogos",
+    "No post was found.": "Nenhum post encontrado.",
 
     // Footer
     "To the top": "Para o topo",

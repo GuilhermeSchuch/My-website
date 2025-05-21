@@ -168,8 +168,16 @@ const Post = () => {
                       else if (pContent.type === "break") {
                         return (
                           <React.Fragment key={pIndex}>
-                            <br />
-                            <br />
+                            {pContent.content === '1' ? (
+                              <>
+                                <br />
+                              </>
+                            ) : (
+                              <>
+                                <br />
+                                <br />
+                              </>
+                            )}
                           </React.Fragment>
                         );
                       }
