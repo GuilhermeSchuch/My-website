@@ -7,6 +7,7 @@ import {
   ProjectPage,
   BlogPage,
   PostPage,
+  JadaErrorPage,
 } from "@pages/index";
 
 // Components
@@ -22,6 +23,7 @@ const AppRouter = () => {
           <Route path="/project/:title" element={<ProjectPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:title" element={<PostPage />} />
+          <Route path="/project/Jada-Mod-Manager/:code" element={<JadaErrorPage />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

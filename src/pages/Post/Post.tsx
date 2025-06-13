@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 // Meta tags
 import { Helmet } from "react-helmet-async";
@@ -28,7 +28,7 @@ interface MetaTag {
 
 interface ParagraphItem {
   type: string;
-  content: string;
+  content: any;
   link?: string;
 }
 
@@ -165,6 +165,57 @@ const Post = () => {
                           </a>
                         );
                       }
+                      else if (pContent.type === "list") {
+                        return (
+                          <ul key={pIndex}>
+                            {Array.isArray(pContent.content) &&
+                              pContent.content.map((li, index) => (
+                                <li key={index}>{li}</li>
+                              ))}
+                          </ul>
+                        );
+                      }
+                      else if (pContent.type === "table-ad" && Array.isArray(pContent.content)) {
+                        return (
+                          <table className="post-table">
+                            <thead>
+                              <tr>
+                                <th>Shop</th>
+                                <th>Link</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <AnimatePresence>
+                                {pContent.content.map((item, index) => (
+                                  <motion.tr
+                                    key={index}
+                                    // variants={rowVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                    layout
+                                    transition={{ duration: 0.3 }}
+                                  >
+                                    <td>{ item?.name }</td>
+                                    <td>
+                                      <a
+                                        href={item?.productLink || "#"}
+                                        target="_blank"
+                                      >
+                                        {item?.imageLink ? (
+                                          <img src={item?.imageLink} style={{ marginTop: "0px" }} />
+                                        ) : (
+                                          <span>{ item?.productLink }</span>
+                                        )}
+                                      </a>
+                                    </td>
+                                  </motion.tr>
+                                ))}
+                              </AnimatePresence>
+                            </tbody>
+                          </table>
+                        );
+                      }
                       else if (pContent.type === "break") {
                         return (
                           <React.Fragment key={pIndex}>
@@ -184,7 +235,7 @@ const Post = () => {
                       else if (pContent.type === "code") {
                         return <code key={pIndex}>{ pContent.content }</code>;
                       }
-                      else if (pContent.type === "image") {
+                      else if (pContent.type === "image" && typeof pContent.content === "string") {
                         return <img key={pIndex} src={ pContent.content } />;
                       }
                       else if (pContent.type === "bold") {

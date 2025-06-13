@@ -85,6 +85,17 @@
   word-break: break-all;
 }
 
+.post-block ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.post-block ul li {
+  width: 95%;
+}
+
 .post-block img {
   margin-top: 30px;
   max-width: 100%;
@@ -103,4 +114,17 @@
   .post-container {
     padding: 0 10vw;
   }
+}
+
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.post-table th,
+.post-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
 }

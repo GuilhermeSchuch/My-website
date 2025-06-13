@@ -45,7 +45,7 @@ interface Project {
 const Project = () => {
   const [project, setProject] = useState<Project | null>(null);
 
-  const { title } = useParams();  
+  const { title } = useParams();
   const { i18n, t } = useTranslation();
 
   useEffect(() => {
@@ -166,7 +166,7 @@ const Project = () => {
 
                     <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration") }:</p>
 
-                    <img src="/projects/jada.webp" alt="" />
+                    <img src="/projects/jada.webp" alt="" width={"100%"} />
                   </>
                 )}
 
@@ -200,7 +200,7 @@ const Project = () => {
                     </ul>
 
                     <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
-                    <img src="/projects/Listinha.gif" alt="" width={300}/>
+                    <img src="/projects/Listinha.gif" alt="" width={"300px"} />
                   </>
                 )}
               </div>

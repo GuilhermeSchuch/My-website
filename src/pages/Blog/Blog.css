@@ -78,11 +78,9 @@
   color: #262626;
 }
 
-
-
 @media screen and (max-width: 992px) {
   .search-wrapper {
-    flex-direction: row-reverse; /* default for large screens */
+    flex-direction: row-reverse;
   }
 
   .sub-header-blog-container {
@@ -92,9 +90,6 @@
     gap: 15px;
   }
 }
-
-
-
 
 .sub-header-blog-menus {
   

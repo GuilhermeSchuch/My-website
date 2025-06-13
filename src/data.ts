@@ -968,6 +968,175 @@ const posts = [
       ]
     }
   },
+  {
+    id: 5,
+    image: "/posts/8bitdo/controllers.webp",
+    imageHash: "L58zlh9v00%N00S2~pM{00oc~qIo",
+    date: "Jun 12, 2025",
+    author: "Guilherme Schuch",
+    title: "8BitDo Ultimate 2 Controller Review - Is It Worth It?",
+    url: "8BitDo-Ultimate-2-Controller-Review-Is-It-Worth-It",
+    subtitle: "Looking for a high-quality wireless controller with great cost-benefit? The new 8BitDo Ultimate 2 might be your best pick right now. Below are the key features and upgrades based on real-world testing.",
+    tags: ["Tech"],
+    metaTags: {
+      title: "8BitDo Ultimate 2 Controller Review - Is It Worth It?",
+      description: "Looking for a high-quality wireless controller with great cost-benefit? The new 8BitDo Ultimate 2 might be your best pick right now. Below are the key features and upgrades based on real-world testing.",
+      keywords: "8BitDo, 8BitDo Ultimate 2, Controller Review"
+    },
+    content: {
+      topics: [
+        "TMR joysticks",
+        "RGB Fire Ring",
+        "“8Speed” Wireless Technology",
+        "Trigger Mode Switch",
+        "8BitDo Ultimate Software V2",
+        "Where to buy",
+      ],
+      block: [
+        {
+          title: "TMR joysticks",
+          paragraph: [
+            {
+              type: "text",
+              content: "TMR (Tunneling MagnetoResistance) joysticks are a type of electromagnetic joystick that uses a quantum mechanical phenomenon to sense position, offering advantages in accuracy, durability, and power efficiency compared to traditional Hall effect joysticks. Meaning that you "
+            },
+            {
+              type: "bold",
+              content: "won't have to deal with Stick drift",
+            },
+            {
+              type: "text",
+              content: ".",
+            },
+          ]
+        },
+        {
+          title: "RGB Fire Ring",
+          paragraph: [
+            {
+              type: "text",
+              content: "An "
+            },
+            {
+              type: "bold",
+              content: "interactive RGB lighting"
+            },
+            {
+              type: "text",
+              content: " feature on the joysticks of the controller that can be customized with various color schemes and light modes using their software."
+            },
+            {
+              type: "image",
+              content: "/posts/8bitdo/fire-ring.webp"
+            },
+          ]
+        },
+        {
+          title: "“8Speed” Wireless Technology",
+          paragraph: [
+            {
+              type: "text",
+              content: "Experience Ultra-Fast, Reliable Gaming with 8BitDo's 8Speed 2.4G Wireless Technology Refined over a decade by 8BitDo, the 8Speed wireless connection technology offers "
+            },
+            {
+              type: "bold",
+              content: "ultra-low latency"
+            },
+            {
+              type: "text",
+              content: " performance—down to just 1ms for smooth, lag-free gaming. With a highly stable 2.4GHz connection, 8Speed ensures exceptional "
+            },
+            {
+              type: "bold",
+              content: "reliability and strong anti-interference"
+            },
+            {
+              type: "text",
+              content: ", even within a 10m range. Designed for energy efficiency, it supports uninterrupted, long-lasting gameplay for serious and casual gamers alike."
+            },
+          ]
+        },
+        {
+          title: "Trigger Mode Switch",
+          paragraph: [
+            {
+              type: "bold",
+              content: "Seamlessly Switch Between Hall Effect and Tactile Triggers for Precision Gaming Control"
+            },
+            {
+              type: "text",
+              content: ", adapt to any gameplay style with the ability to instantly switch between linear Hall Effect triggers and non-linear tactile triggers. Whether you need smooth analog control or responsive feedback, this versatile setup ensures optimal performance across all gaming scenarios."
+            },
+            {
+              type: "break",
+              content: "1"
+            },
+            {
+              type: "image",
+              content: "/posts/8bitdo/trigger-mode.png"
+            },
+          ]
+        },
+        {
+          title: "8BitDo Ultimate Software V2",
+          paragraph: [
+            {
+              type: "text",
+              content: "The 8BitDo Ultimate Software V2 is a powerful tool designed to give gamers full command over their controller's performance. With this software, users can tailor nearly every aspect of their controller to suit their playstyle:"
+            },
+            {
+              type: "break",
+              content: ""
+            },
+            {
+              type: "list",
+              content: [
+                "Button Remapping lets you redefine button functions to match your preferences.",
+                "Stick Configuration offers detailed tuning for more accurate and responsive control.",
+                "Trigger Sensitivity can be adjusted to speed up response time.",
+                "Vibration Settings allow you to modify feedback strength for a more personalized feel.",
+                "RGB Customization gives control over lighting effects and color schemes.",
+                "Motion Adjustment includes sensitivity tuning and dead zone correction for motion-based input.",
+                "Macro Programming enables the creation of complex action sequences, all triggered by a single button.",
+                "Firmware Management ensures your controller always runs the latest software.",
+              ]
+            },
+            {
+              type: "image",
+              content: "/posts/8bitdo/software.webp"
+            },
+          ]
+        },
+        {
+          title: "Where to buy",
+          paragraph: [
+            {
+              type: "text",
+              content: "If you want to purchase the 8BitDo Ultimate 2 at the best price, take advantage of the links below, with international shipping: "
+            },
+            {
+              type: "break",
+              content: "",
+            },
+            {
+              type: "table-ad",
+              content: [
+                {
+                  name: "Aliexpress",
+                  productLink: "https://s.click.aliexpress.com/e/_oCHJxlG",
+                  imageLink: "//ae01.alicdn.com/kf/S7cd8422569ea41feb0dafd1d783851d1f.jpg_140x140.jpg"
+                },
+                {
+                  name: "Amazon",
+                  productLink: "https://amzn.to/4jNvghG",
+                },
+              ],
+            },
+          ]
+        },
+      ]
+    }
+  },
 ]
 
 const postsBR = [
