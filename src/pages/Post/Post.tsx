@@ -177,43 +177,45 @@ const Post = () => {
                       }
                       else if (pContent.type === "table-ad" && Array.isArray(pContent.content)) {
                         return (
-                          <table className="post-table">
-                            <thead>
-                              <tr>
-                                <th>Shop</th>
-                                <th>Link</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <AnimatePresence>
-                                {pContent.content.map((item, index) => (
-                                  <motion.tr
-                                    key={index}
-                                    // variants={rowVariants}
-                                    initial="hidden"
-                                    animate="visible"
-                                    exit="exit"
-                                    layout
-                                    transition={{ duration: 0.3 }}
-                                  >
-                                    <td>{ item?.name }</td>
-                                    <td>
-                                      <a
-                                        href={item?.productLink || "#"}
-                                        target="_blank"
-                                      >
-                                        {item?.imageLink ? (
-                                          <img src={item?.imageLink} style={{ marginTop: "0px" }} />
-                                        ) : (
-                                          <span>{ item?.productLink }</span>
-                                        )}
-                                      </a>
-                                    </td>
-                                  </motion.tr>
-                                ))}
-                              </AnimatePresence>
-                            </tbody>
-                          </table>
+                          <div className="table-responsive">
+                            <table className="post-table">
+                              <thead>
+                                <tr>
+                                  <th>Shop</th>
+                                  <th>Link</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <AnimatePresence>
+                                  {pContent.content.map((item, index) => (
+                                    <motion.tr
+                                      key={index}
+                                      // variants={rowVariants}
+                                      initial="hidden"
+                                      animate="visible"
+                                      exit="exit"
+                                      layout
+                                      transition={{ duration: 0.3 }}
+                                    >
+                                      <td>{ item?.name }</td>
+                                      <td>
+                                        <a
+                                          href={item?.productLink || "#"}
+                                          target="_blank"
+                                        >
+                                          {item?.imageLink ? (
+                                            <img src={item?.imageLink} style={{ marginTop: "0px" }} />
+                                          ) : (
+                                            <span>{ item?.productLink }</span>
+                                          )}
+                                        </a>
+                                      </td>
+                                    </motion.tr>
+                                  ))}
+                                </AnimatePresence>
+                              </tbody>
+                            </table>
+                          </div>
                         );
                       }
                       else if (pContent.type === "break") {

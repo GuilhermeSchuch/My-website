@@ -116,10 +116,16 @@
   }
 }
 
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .post-table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid #ccc;
+  min-width: 400px;
 }
 
 .post-table th,
