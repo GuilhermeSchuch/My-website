@@ -73,8 +73,16 @@ code {
   margin-bottom: 1vh;
 }
 
+.mt-1 {
+  margin-top: 1vh;
+}
+
 .mt-2 {
   margin-top: 2vh;
+}
+
+.mt-3 {
+  margin-top: 3vh;
 }
 
 .mb-1 {
@@ -121,4 +129,8 @@ code {
   background-color: #904BBE;
   border-radius: 10px;
   border: 3px solid #000000;
+}
+
+.no-underline {
+  text-decoration: none !important;
 }

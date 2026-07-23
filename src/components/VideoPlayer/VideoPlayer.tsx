@@ -1,28 +1,61 @@
-// Video Player
-import { Player, BigPlayButton, LoadingSpinner } from 'video-react';
+import "./VideoPlayer.css";
+import { Player, BigPlayButton, LoadingSpinner } from "video-react";
+import {
+  useRef,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
+import type { PlayerReference } from "video-react";
 
-// Hooks
-import { useRef, useEffect } from 'react';
+interface VideoPlayerProps {
+  videoURL: string;
+}
 
-const VideoPlayer = ({ videoURL }: any) => {
-  const playerRef = useRef<any>(null);
+export interface VideoPlayerHandle {
+  pause: () => void;
+}
+
+type VideoReactPlayer = PlayerReference & {
+  video?: {
+    video?: HTMLVideoElement;
+  };
+};
+
+const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(({ videoURL }, ref) => {
+  const playerRef = useRef<VideoReactPlayer | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    pause: () => {
+      if (playerRef.current) {
+        playerRef.current.pause();
+      }
+    },
+  }));
 
   useEffect(() => {
-    if(playerRef.current) {
-      playerRef.current.video.volume = 0.5;
+    const video = playerRef.current?.video?.video;
+
+    if (video) {
+      video.volume = 0.5;
+      video.disablePictureInPicture = true;
+      video.disableRemotePlayback = true;
+
+      video.setAttribute(
+        "controlsList",
+        "nodownload noplaybackrate noremoteplayback nofullscreen"
+      );
+
+      video.setAttribute("preload", "metadata");
     }
-  }, []);  
+  }, []);
 
   return (
-    <Player
-      playsInline
-      src={videoURL}
-      ref={playerRef}
-    >
+    <Player ref={playerRef} playsInline src={videoURL}>
       <LoadingSpinner />
       <BigPlayButton position="center" />
     </Player>
   );
-};
+});
 
 export default VideoPlayer;

@@ -155,6 +155,27 @@ const Blog = () => {
                   />
                 )}
               </li>
+
+              <li>
+                <motion.button
+                  onClick={() => handleSubHeader(t("Review"))}
+                  className="cleared-button"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  { t("Review") }
+                </motion.button>
+
+                {active === t("Review") && (
+                  <motion.div
+                    className="active-header-button"
+                    initial={{ opacity: 0, width: 0 }}
+                    animate={{ opacity: 1, width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </li>
             </ul>
 
           </div>

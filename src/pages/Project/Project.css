@@ -105,13 +105,12 @@
     gap: 5vh;
   }
 
-  .project-side-item {
-    flex-direction: column;
-    max-width: 80vw;
-  }
-
   .feature-card,
   .tech-card {
     width: 100%;
+  }
+
+  .project-top-content-container, .project-description-container {
+    padding: 0 5vw;
   }
 }

@@ -15,7 +15,7 @@ import { projects, projectsBR } from "../../data";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import { TinyFooter, VideoPlayer } from "@components/index";
+import { TinyFooter, VideoPlayer, Carousel } from "@components/index";
 
 interface Tech {
   name: string;
@@ -137,7 +137,7 @@ const Project = () => {
                           opacity: { duration: 0.5, delay: index * 0.5 },
                         }}
                       >
-                        {tech.icon === "fa-database" ? (
+                        {tech.icon === "fa-database" || tech.icon === "fa-face-smile" ? (
                           <i className={`fa-solid ${tech.icon}`} style={{ color: tech.color }}></i>
                         ) : (
                           <i className={`fa-brands ${tech.icon}`} style={{ color: tech.color }}></i>
@@ -161,12 +161,18 @@ const Project = () => {
 
                     <ul className="tertiary-text-color ms-3">
                       <li>V1 - { t("Oct 22") }, 2024</li>
-                      <li>V2 - { t("In progress") }</li>
+                      <li>V2 - { t("Jan 20") }, 2025</li>
+                      <li>V3 - { t("In progress") }</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration") }:</p>
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration") }:</p>
 
-                    <img src="/projects/jada.webp" alt="" width={"100%"} />
+                    {/* <img src="/projects/jada.webp" alt="" width={"100%"} /> */}
+                    <Carousel media={[
+                      { type: "image", src: "/projects/jada/jada.webp" },
+                      { type: "image", src: "/projects/jada/jada-v2.webp" },
+                      { type: "image", src: "/projects/jada/jada-suggestion.webp" },
+                    ]} />
                   </>
                 )}
 
@@ -182,7 +188,7 @@ const Project = () => {
                       <li>V1 - { t("Sep 5") }, 2023</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
                     <VideoPlayer videoURL={"/projects/AutoLavagemWebsite.mp4"} />
                   </>
                 )}
@@ -199,8 +205,84 @@ const Project = () => {
                       <li>V1 - { t("Dec 3") }, 2023</li>
                     </ul>
 
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
                     <img src="/projects/Listinha.gif" alt="" width={"300px"} />
+                  </>
+                )}
+
+                {project?.id === 4 && (
+                  <>
+                    <p className="tertiary-text-color">
+                      { t("Password Manager is a secure and user-friendly desktop application for storing and managing credentials. It allows users to generate strong, customizable passwords by selecting character types (uppercase, lowercase, numbers, and special characters) and adjusting length. With options to add, update, delete, and list saved entries, the tool provides an organized and efficient way to manage accounts, all within a sleek dark-themed interface.") }
+                    </p>
+
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
+
+                    <ul className="tertiary-text-color ms-3">
+                      <li>V1 - { t("Jul 30") }, 2025</li>
+                      <li>V2 - { t("May 04") }, 2026</li>
+                    </ul>
+
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration") }:</p>
+
+                    <Carousel media={[
+                      { type: "image", src: "/projects/password-manager/password-manager.webp" },
+                      { type: "image", src: "/projects/password-manager/password-manager-v2.webp" },
+                    ]} maxWidth="60%" />
+                  </>
+                )}
+
+                {project?.id === 5 && (
+                  <>
+                    <p className="tertiary-text-color">
+                      { t("Unknown Pixel is a web app designed to help gamers discover their next favorite title. Users can search for games by tags or developers, or let the platform's AI deliver personalized recommendations based on their preferences. Whether you're into blockbuster hits or hidden indie gems, Unknown Pixel makes game discovery faster, smarter, and more fun.") }
+                    </p>
+
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
+
+                    <ul className="tertiary-text-color ms-3">
+                      <li>V1 - { t("Aug 10") }, 2025</li>
+                      <li>V2 - { t("Feb 10") }, 2026</li>
+                    </ul>
+
+                    <p className="tertiary-text-color mt-2 mb-1">{ t("Link for the website") }: <a
+                      href="https://unknown-pixel.netlify.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="secundary-text-color"
+                    >
+                      https://unknown-pixel.netlify.app
+                    </a></p>
+
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration") }:</p>
+
+                    <Carousel media={[
+                      { type: "image", src: "/projects/unknown-pixel/unknown-pixel-old.webp" },
+                      { type: "image", src: "/projects/unknown-pixel/unknown-pixel.webp" },
+                      { type: "video", src: "/projects/unknown-pixel/unknown-pixel-video.mp4" },
+                    ]} />
+                  </>
+                )}
+
+                {project?.id === 6 && (
+                  <>
+                    <p className="tertiary-text-color">
+                      { t('Violet Player is an ad-free MP3 player built for people who just want to listen to their music without an ad popping up. The user should choose a folder from their device, and the app will scan all .mp3 files using the format: Band - Song.mp3.') }
+                    </p>
+
+                    <p className="tertiary-text-color mt-1">
+                      { t('From there, it automatically identifies the artist and song title, builds your music library, and creates band playlists when an artist has more than one track. You can also create, rename, manage, and customize your own playlists anytime.') }
+                    </p>
+
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Versions") }:</p>
+
+                    <ul className="tertiary-text-color ms-3">
+                      <li>V1 - { t("Jul 15") }, 2026</li>
+                    </ul>
+
+                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration") }:</p>                    
+
+                    <img src="/projects/violet-player/violet-player.webp" alt="" width={"100%"} />
                   </>
                 )}
               </div>

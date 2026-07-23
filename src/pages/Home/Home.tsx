@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 // Icons
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import BusinessIcon from '@mui/icons-material/Business';
 
 import ReactTypingEffect from "react-typing-effect";
 import { Helmet } from "react-helmet-async";
@@ -19,7 +20,7 @@ import {
 } from "@components/index";
 
 // Data
-import { projects } from "../../data";
+import { projects, companies } from "../../data";
 
 interface Project {
   id: number;
@@ -86,6 +87,24 @@ const Home = () => {
               <span>{ t("See projects") }</span>
               <KeyboardArrowDownIcon fontSize="large" />
             </button>
+          </div>
+        </div>
+
+        <div id="worked-with" className="worked-with-container">
+          <div className="worked-with-title-container">
+            <h1 className="h1 primary-text-color">{ t("Worked with") }</h1>
+          </div>
+          <div className="worked-with-content">
+            {companies.map(company => (
+              <a key={company.id} className="company-card no-underline" href={company.link} target="_blank" rel="noopener noreferrer">
+                {company.image ? (
+                  <img src={company.image} alt={company.name} />
+                ) : (
+                  <BusinessIcon fontSize="large" />
+                )}
+                <h3>{company.name}</h3>
+              </a>
+            ))}
           </div>
         </div>
 

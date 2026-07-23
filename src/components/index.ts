@@ -4,3 +4,5 @@ export { default as Footer } from "./Footer/Footer";
 export { default as TinyFooter } from "./TinyFooter/TinyFooter";
 export { default as VideoPlayer } from "./VideoPlayer/VideoPlayer";
 export { default as Header } from "./Header/Header";
+export { default as Carousel } from "./Carousel/Carousel";
+export { default as ModalImage } from "./ModalImage/ModalImage";

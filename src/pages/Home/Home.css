@@ -32,9 +32,60 @@
   transition: .3s;
 }
 
+.worked-with-container {
+  padding: 5vh 10vw;
+  background-color: #0D0D0D;
+}
+
+.worked-with-title-container {
+  text-align: center;
+  margin-bottom: 3vh;
+}
+
+.worked-with-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vw;
+}
+
+.company-card {
+  background-color: #262626;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.company-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.company-card h3 {
+  font-size: 1rem;
+  text-align: center;
+  margin: 0;
+}
+
 .my-career-container {
   background-color: #262626;  
-  margin-top: 5vh;
+  /* Remove margin-top since worked-with is above and will provide spacing or add padding-top */
+  padding-top: 5vh;
 }
 
 .my-projects-container {
