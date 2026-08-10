@@ -2772,6 +2772,12 @@ const postsBR = [
 
 const companies = [
   {
+    id: 0,
+    name: "Myde",
+    image: "/companies/myde.webp",
+    link: "https://www.myde.tech",
+  },
+  {
     id: 1,
     name: "Flanp",
     image: "/companies/flanp-2022.webp",
