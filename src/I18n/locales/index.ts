@@ -1,4 +1,4 @@
-import ptBrTranslations from "./pt-Br";
+import ptBrTranslations from "./pt-br";
 
 export default {
   "en-US": {},
