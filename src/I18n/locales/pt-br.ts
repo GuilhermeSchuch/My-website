@@ -62,7 +62,6 @@ export default {
     "All posts": "Todos",
     "Tech": "Tecnologia",
     "Games": "Jogos",
-    "Review": "Análise",
     "No post was found.": "Nenhum post encontrado.",
 
     // Footer
