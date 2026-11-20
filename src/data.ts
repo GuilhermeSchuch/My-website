@@ -1,3 +1,23 @@
+const passwordManagerTechs = [
+  {name: "Electron", icon: "fa-square-js", color: "#9FEAF9", link: "https://www.electronjs.org"},
+  {name: "React", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
+  {name: "TypeScript", icon: "", color: "#3178C6", link: "https://www.typescriptlang.org"},
+  {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://reactnative.dev"},
+];
+
+const echoDeck = {
+  id: 7,
+  title: "EchoDeck",
+  url: "EchoDeck",
+  tags: "Software",
+  image: "/cards/echodeck.png",
+  techs: [
+    {name: "Electron", icon: "fa-square-js", color: "#9FEAF9", link: "https://www.electronjs.org"},
+    {name: "JavaScript", icon: "fa-js", color: "#F7DF1E", link: "https://developer.mozilla.org/docs/Web/JavaScript"},
+  ],
+  github: "https://github.com/GuilhermeSchuch/MP3-Player",
+};
+
 const projects = [
   {
     id: 1,
@@ -45,43 +65,23 @@ const projects = [
     github: "https://github.com/GuilhermeSchuch/AutoLavagem-APP"
   },
   {
-    id: 3,
-    title: "Listinha",
-    url: "Listinha",
-    tags: "Android, Mobile",
-    metaTags: {
-      title: "Listinha",
-      description: "",
-      keywords: ""
-    },
-    image: "/cards/listinha.png",
-    features: ["List management", "Support for 3 languages"],
-    techs: [
-      {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://reactnative.dev"},
-      {name: "SQLite", icon: "fa-database", color: "#218CD2", link: "https://www.sqlite.org"},
-    ],
-    github: "https://github.com/GuilhermeSchuch/Listinha"
-  },
-  {
     id: 4,
     title: "Password Manager",
     url: "Password-Manager",
     tags: "Software",
     metaTags: {
       title: "Password Manager",
-      description: "",
-      keywords: ""
+      description: "Unlock your local vault with a master passphrase to search logins, copy a password, or generate a new one. Export an encrypted backup to read your logins on Android.",
+      keywords: "password manager, encrypted vault, Android, Electron"
     },
-    image: "/cards/password-manager.png",
+    image: "/cards/password-manager-demo.webp",
     features: [
-      "Password management",
-      "Secure random password generation using secrets",
-      "Local storage with SQLite",
+      "Encrypted vault with automatic locking",
+      "Customizable password generator",
+      "Encrypted backups and legacy imports",
+      "Read-only Android viewer",
     ],
-    techs: [
-      {name: "Python", icon: "fa-python", color: "#fce161", link: "https://www.python.org"},
-      {name: "SQLite", icon: "fa-database", color: "#218CD2", link: "https://www.sqlite.org"},
-    ],
+    techs: passwordManagerTechs,
     github: "https://github.com/GuilhermeSchuch/Password-Manager"
   },
   {
@@ -126,6 +126,15 @@ const projects = [
       {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
     ],
     github: "https://github.com/GuilhermeSchuch/Violet-Player"
+  },
+  {
+    ...echoDeck,
+    metaTags: {
+      title: "EchoDeck",
+      description: "EchoDeck plays your local MP3 collection on Windows. Build playlists, follow lyrics as the music plays, and share your current track on Discord.",
+      keywords: "EchoDeck, MP3 player, Windows, playlists, lyrics, Discord Rich Presence",
+    },
+    features: ["Saved playlists", "Synced lyrics", "Per-song volume", "Discord Rich Presence"],
   },
 ]
 
@@ -180,51 +189,23 @@ const projectsBR = [
     github: "https://github.com/GuilhermeSchuch/AutoLavagem-APP"
   },
   {
-    id: 3,
-    title: "Listinha",
-    url: "Listinha",
-    tags: "Android, Mobile",
-    metaTags: {
-      title: "Listinha",
-      description: "Aplicativo simples para criar e organizar listas com suporte multilíngue.",
-      keywords: "listas, mobile, android, react native"
-    },
-    image: "/cards/listinha.png",
-    media: [
-      { type: "image", src: "/projects/jada.webp" },
-      { type: "image", src: "/projects/unknown-pixel.png" },
-    ],
-    features: ["Gerenciamento de listas", "Suporte a 3 idiomas"],
-    techs: [
-      {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://reactnative.dev"},
-      {name: "SQLite", icon: "fa-database", color: "#218CD2", link: "https://www.sqlite.org"},
-    ],
-    github: "https://github.com/GuilhermeSchuch/Listinha"
-  },
-  {
     id: 4,
     title: "Gerenciador de Senhas",
     url: "Password-Manager",
     tags: "Software",
     metaTags: {
       title: "Gerenciador de Senhas",
-      description: "",
-      keywords: ""
+      description: "Desbloqueie seu cofre local com uma senha mestra para buscar contas, copiar uma senha ou gerar outra. Exporte um backup criptografado para consultar suas contas no Android.",
+      keywords: "gerenciador de senhas, cofre criptografado, Android, Electron"
     },
-    image: "/cards/password-manager.png",
-    media: [
-      { type: "image", src: "/projects/jada.webp" },
-      { type: "image", src: "/projects/unknown-pixel.png" },
-    ],
+    image: "/cards/password-manager-demo.webp",
     features: [
-      "Gerenciamento de senhas",
-      "Geração segura de senhas aleatórias usando secrets",
-      "Armazenamento local com SQLite"
+      "Cofre criptografado com bloqueio automático",
+      "Gerador de senhas personalizável",
+      "Backups criptografados e importação de dados antigos",
+      "Consulta de senhas no Android",
     ],
-    techs: [
-      {name: "Python", icon: "fa-python", color: "#fce161", link: "https://www.python.org"},
-      {name: "SQLite", icon: "fa-database", color: "#218CD2", link: "https://www.sqlite.org"}
-    ],
+    techs: passwordManagerTechs,
     github: "https://github.com/GuilhermeSchuch/Password-Manager"
   },
   {
@@ -272,6 +253,15 @@ const projectsBR = [
       {name: "React Native", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
     ],
     github: "https://github.com/GuilhermeSchuch/Violet-Player"
+  },
+  {
+    ...echoDeck,
+    metaTags: {
+      title: "EchoDeck",
+      description: "Com o EchoDeck, você pode ouvir sua coleção de MP3 no Windows, montar playlists, acompanhar as letras e mostrar no Discord a música que está tocando.",
+      keywords: "EchoDeck, reprodutor de MP3, Windows, playlists, letras, Discord Rich Presence",
+    },
+    features: ["Playlists salvas", "Letras sincronizadas", "Volume por faixa", "Integração com o Discord"],
   },
 ];
 

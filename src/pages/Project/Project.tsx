@@ -60,7 +60,7 @@ const Project = () => {
       }
       window.scrollTo(0, 0);
     }
-  }, [project])
+  }, [title, i18n.language])
 
   const handleLinks = (link: string) => {
     window.open(link);
@@ -151,6 +151,13 @@ const Project = () => {
               </div>
 
               <div className="project-description-container">
+                {project.id === 7 && (
+                  <>
+                    <p className="tertiary-text-color">{project.metaTags.description}</p>
+                    <p className="tertiary-text-color mt-3 mb-1">{t("Demonstration")}</p>
+                    <VideoPlayer videoURL="/projects/echodeck/EchoDeck-Feature-Tour.mp4" />
+                  </>
+                )}
                 {project?.id === 1 && (
                   <>
                     <p className="tertiary-text-color">
@@ -193,27 +200,10 @@ const Project = () => {
                   </>
                 )}
 
-                {project?.id === 3 && (
-                  <>
-                    <p className="tertiary-text-color">
-                      { t("This APP allows the user to create, manage and customize shopping lists and daily tasks with ease.") }
-                    </p>
-
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
-
-                    <ul className="tertiary-text-color ms-3">
-                      <li>V1 - { t("Dec 3") }, 2023</li>
-                    </ul>
-
-                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
-                    <img src="/projects/Listinha.gif" alt="" width={"300px"} />
-                  </>
-                )}
-
                 {project?.id === 4 && (
                   <>
                     <p className="tertiary-text-color">
-                      { t("Password Manager is a secure and user-friendly desktop application for storing and managing credentials. It allows users to generate strong, customizable passwords by selecting character types (uppercase, lowercase, numbers, and special characters) and adjusting length. With options to add, update, delete, and list saved entries, the tool provides an organized and efficient way to manage accounts, all within a sleek dark-themed interface.") }
+                      {project.metaTags.description}
                     </p>
 
                     <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
@@ -221,14 +211,15 @@ const Project = () => {
                     <ul className="tertiary-text-color ms-3">
                       <li>V1 - { t("Jul 30") }, 2025</li>
                       <li>V2 - { t("May 04") }, 2026</li>
+                      <li>V3 - { t("Aug 28") }, 2026</li>
+                      <li>V4 - { t("Sep 08") }, 2026</li>
+                      <li>V5 - { t("Sep 28") }, 2026</li>
+                      <li>V6 - { t("Nov 15") }, 2026</li>
                     </ul>
 
                     <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration") }:</p>
 
-                    <Carousel media={[
-                      { type: "image", src: "/projects/password-manager/password-manager.webp" },
-                      { type: "image", src: "/projects/password-manager/password-manager-v2.webp" },
-                    ]} maxWidth="60%" />
+                    <VideoPlayer videoURL="/projects/password-manager/password-manager-demo-hd.mp4" />
                   </>
                 )}
 
