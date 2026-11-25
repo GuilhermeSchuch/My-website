@@ -39,32 +39,6 @@ const projects = [
     github: null
   },
   {
-    id: 2,
-    title: "Self car wash system",
-    url: "Self-car-wash-system",
-    tags: "Freelance, Web App",
-    metaTags: {
-      title: "Self car wash system",
-      description: "",
-      keywords: ""
-    },
-    image: "/cards/selfcarwash.webp",
-    features: [
-      "Customer management",
-      "Employee management",
-      "Car management",
-      "Service management",
-      "Financial system",
-      "Sheet management"
-    ],
-    techs: [
-      {name: "React", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
-      {name: "Node.js", icon: "fa-node-js", color: "#417E38", link: "nodejs.org"},
-      {name: "MongoDB", icon: "fa-database", color: "#00ED64", link: "https://www.mongodb.com"},
-    ],
-    github: "https://github.com/GuilhermeSchuch/AutoLavagem-APP"
-  },
-  {
     id: 4,
     title: "Password Manager",
     url: "Password-Manager",
@@ -157,36 +131,6 @@ const projectsBR = [
       {name: "Electron", icon: "fa-square-js", color: "#9FEAF9", link: "https://www.electronjs.org"},
     ],
     github: null
-  },
-  {
-    id: 2,
-    title: "Sistema para Auto Lavagem de carros",
-    url: "Self-car-wash-system",
-    tags: "Freelancer, Web App",
-    metaTags: {
-      title: "Sistema para Auto Lavagem de carros",
-      description: "Sistema completo para gestão de lava-rápido com clientes, funcionários e financeiro.",
-      keywords: "Lava-rápido, sistema de gestão, autoatendimento, freelancer"
-    },
-    image: "/cards/selfcarwash.webp",
-    media: [
-      { type: "image", src: "/projects/jada.webp" },
-      { type: "image", src: "/projects/unknown-pixel.png" },
-    ],
-    features: [
-      "Gerenciamento de clientes",
-      "Gerenciamento de funcionários",
-      "Gerenciamento de carros",
-      "Gerenciamento de serviços",
-      "Sistema financeiro",
-      "Gerenciamento de planilhas"
-    ],
-    techs: [
-      {name: "React", icon: "fa-react", color: "#58C4DC", link: "https://react.dev"},
-      {name: "Node.js", icon: "fa-node-js", color: "#417E38", link: "https://nodejs.org"},
-      {name: "MongoDB", icon: "fa-database", color: "#00ED64", link: "https://www.mongodb.com"},
-    ],
-    github: "https://github.com/GuilhermeSchuch/AutoLavagem-APP"
   },
   {
     id: 4,

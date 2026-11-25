@@ -25,14 +25,9 @@ export default {
 
     // Projects
     "See more": "Ver mais",
-    "Self car wash system": "Sistema para Auto Lavagem de carros",
-    "A complete": "Um sistema completo",
-    "system for a car wash made in 2023, the whole project took 3 months to finish.": "para uma Auto Lavagem de carros, feito em 2023. O projeto precisou de 3 meses de trabalho para a sua finalização.",
     "Features": "Recursos",
     "Techs": "Criado com",
     "Versions": "Versões",
-    "Sep 5": "05 de Set",
-    "Demonstration (Pt-Br)": "Demonstração",
     "Demonstration": "Demonstração",
     "Jada Mod Manager is an": "Jada Mod Manager é um gerenciador de mods",
     "mod manager,": "(de fácil uso),",

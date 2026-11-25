@@ -183,23 +183,6 @@ const Project = () => {
                   </>
                 )}
 
-                {project?.id === 2 && (
-                  <>
-                    <p className="tertiary-text-color">
-                      { t("A complete") } <u>freelance</u> { t("system for a car wash made in 2023, the whole project took 3 months to finish.") }
-                    </p>
-
-                    <p className="tertiary-text-color mt-2 mb-1">{ t("Versions") }:</p>
-
-                    <ul className="tertiary-text-color ms-3">
-                      <li>V1 - { t("Sep 5") }, 2023</li>
-                    </ul>
-
-                    <p className="tertiary-text-color mt-3 mb-1">{ t("Demonstration (Pt-Br)") }:</p>
-                    <VideoPlayer videoURL={"/projects/AutoLavagemWebsite.mp4"} />
-                  </>
-                )}
-
                 {project?.id === 4 && (
                   <>
                     <p className="tertiary-text-color">

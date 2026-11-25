@@ -4,7 +4,6 @@ import "./Footer.css";
 // Icons
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkIcon from '@mui/icons-material/Link';
 import EmailIcon from '@mui/icons-material/Email';
@@ -73,11 +72,6 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 <li onClick={() => handleLinks("https://www.instagram.com/guigui.schuch/", "external-link")}>
                   <InstagramIcon />
                   <span>@guigui.schuch</span>
-                </li>
-
-                <li onClick={() => handleLinks("https://www.linkedin.com/in/guilhermeschuch2005/", "external-link")}>
-                  <LinkedInIcon />
-                  <span>@guilhermeschuch2005</span>
                 </li>
 
                 <li onClick={() => handleLinks("https://github.com/GuilhermeSchuch", "external-link")}>
