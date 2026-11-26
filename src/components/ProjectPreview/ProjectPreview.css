@@ -1,4 +1,5 @@
 .MuiDialog-paper.project-preview {
+  box-shadow: none;
   background: #191919;
   color: #ededed;
   border: 1px solid #393939;
@@ -33,6 +34,12 @@
 .preview-versions ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin: 10px 0 4px; }
 .preview-versions li { font-size: .9rem; color: #ccc; }
 .preview-versions strong { color: #e2a3ea; }
+.preview-release { flex: 1 1 100%; }
+.preview-release details { border-bottom: 1px solid #393939; }
+.preview-release summary { padding: 7px 4px; cursor: pointer; }
+.preview-release summary::marker { color: #e2a3ea; }
+.preview-release summary:focus-visible { outline: 2px solid #e2a3ea; }
+.preview-release p { margin: 2px 0 12px 20px; line-height: 1.5; }
 
 @media (max-width: 600px) {
   .MuiDialog-paper.project-preview { margin: 10px; width: calc(100% - 20px); }
