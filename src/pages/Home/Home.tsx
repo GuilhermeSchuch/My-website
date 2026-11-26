@@ -3,6 +3,8 @@ import "./Home.css";
 
 // Hooks
 import { useRef, useState, useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import ProjectPreview from "../../components/ProjectPreview/ProjectPreview";
 import { useTranslation } from "react-i18next";
 
 // Icons
@@ -22,18 +24,22 @@ import {
 // Data
 import { projects, companies } from "../../data";
 
-interface Project {
-  id: number;
-  title: string;
-  tags: string;
-  image: string;
-  github: string | null;
-}
-
 const Home = () => {
   const { i18n, t } = useTranslation();
 
-  const [projectsData, setProjectsData] = useState<Project[]>([]);
+  const { title } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const selectedProject = projects.find(project => project.url === title);
+
+  const closePreview = () => {
+    if (location.state?.fromProjectCard) {
+      navigate(-1);
+    } else {
+      navigate("/", { replace: true });
+      projectsRef.current?.scrollIntoView();
+    }
+  };
   const [selectedLanguage, setSelectedLanguage] = useState(navigator.language);
 
   const projectsRef = useRef<HTMLDivElement | null>(null);
@@ -47,11 +53,7 @@ const Home = () => {
     projectsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    if(projects) {
-      setProjectsData(projects);
-    }
-  }, [])
+  if (title && !selectedProject) return <div className="not-found-container">Project not found</div>;
 
   return (
     <>
@@ -123,11 +125,15 @@ const Home = () => {
           </div>
 
           <div className="my-projects-content">
-            {projectsData && projectsData.map((project) => (
+            {projects.map((project) => (
               <ProjectCard key={project.id} data={project} />
             ))}
           </div>
         </div>
+
+        {selectedProject && (
+          <ProjectPreview key={selectedProject.id} project={selectedProject} onClose={closePreview} />
+        )}
 
         <Footer ref={topSiteRef} />
       </div>

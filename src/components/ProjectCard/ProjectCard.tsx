@@ -12,25 +12,15 @@ import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 import { motion, useInView } from "framer-motion";
 
-const ProjectCard = ({ data }: any) => {
+import type { projects } from "../../data";
+
+const ProjectCard = ({ data }: { data: (typeof projects)[number] }) => {
   const navigate = useNavigate();  
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const { t } = useTranslation();
-
-  const handleLinks = (link: string, type: string) => {
-    if(link !== null) {
-      if(type === "github") {
-        window.open(link)
-      }
-      else if(type === "see-more"){
-        navigate(link);
-        window.scrollTo(0, 0);
-      }
-    }
-  }
 
   return (
     <motion.div
@@ -55,7 +45,8 @@ const ProjectCard = ({ data }: any) => {
             whileHover={{ scale: 1.1, color: "#BB2BCB" }}
             whileTap={{ scale: 0.95 }}
             className="cleared-button"
-            onClick={() => handleLinks(`/project/${data.url}`, "see-more")}
+            aria-haspopup="dialog"
+            onClick={() => navigate(`/project/${data.url}`, { state: { fromProjectCard: true } })}
           >
             <ArrowOutwardIcon />
             <span>{ t("See more") }</span>
@@ -65,7 +56,7 @@ const ProjectCard = ({ data }: any) => {
             whileHover={{ scale: 1.1, color: data.github ? "#BB2BCB" : "#CB2B78" }}
             whileTap={{ scale: 0.95 }}
             className={`cleared-button ${!data.github ? "no-github" : ""}`}
-            onClick={() => handleLinks(data.github, "github")}
+            onClick={() => data.github && window.open(data.github, "_blank", "noopener")}
           >
             <GitHubIcon />
             <span>Github</span>

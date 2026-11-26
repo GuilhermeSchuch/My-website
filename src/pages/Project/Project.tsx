@@ -154,7 +154,7 @@ const Project = () => {
                 {project.id === 7 && (
                   <>
                     <p className="tertiary-text-color">{project.metaTags.description}</p>
-                    <p className="tertiary-text-color mt-3 mb-1">{t("Demonstration")}</p>
+                    <p className="tertiary-text-color mt-3 mb-1">{t("Demonstration")}:</p>
                     <VideoPlayer videoURL="/projects/echodeck/EchoDeck-Feature-Tour.mp4" />
                   </>
                 )}

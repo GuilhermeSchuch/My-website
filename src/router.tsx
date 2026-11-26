@@ -4,7 +4,6 @@ import { HelmetProvider } from "react-helmet-async";
 // Pages
 import {
   HomePage,
-  ProjectPage,
   BlogPage,
   PostPage,
   JadaErrorPage,
@@ -20,7 +19,7 @@ const AppRouter = () => {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/project/:title" element={<ProjectPage />} />
+          <Route path="/project/:title" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:title" element={<PostPage />} />
           <Route path="/project/Jada-Mod-Manager/:code" element={<JadaErrorPage />} />

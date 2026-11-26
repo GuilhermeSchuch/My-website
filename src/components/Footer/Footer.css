@@ -58,6 +58,14 @@
   transition: .3s;
 }
 
+.footer-content-item-content li a {
+  display: inline-flex;
+  align-items: center;
+  gap: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 .footer-content-item-content ul li:hover {
   color: #BB2BCB;
 }

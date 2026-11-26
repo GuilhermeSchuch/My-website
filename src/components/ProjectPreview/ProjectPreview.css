@@ -1,0 +1,40 @@
+.MuiDialog-paper.project-preview {
+  background: #191919;
+  color: #ededed;
+  border: 1px solid #393939;
+  border-radius: 16px;
+}
+
+.preview-heading, .preview-body { padding: 16px 24px; }
+.preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #393939;
+}
+.preview-heading h2 { font-size: clamp(1.15rem, 3vw, 1.65rem); }
+.preview-body { overflow-y: auto; }
+.preview-media {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #0d0d0d;
+  border-radius: 8px;
+}
+.preview-media img, .preview-media video {
+  display: block;
+  width: 100%;
+  max-height: 62dvh;
+  object-fit: contain;
+}
+.preview-navigation { display: flex; justify-content: center; align-items: center; gap: 12px; }
+.preview-versions { margin-top: 16px; }
+.preview-versions ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; margin: 10px 0 4px; }
+.preview-versions li { font-size: .9rem; color: #ccc; }
+.preview-versions strong { color: #e2a3ea; }
+
+@media (max-width: 600px) {
+  .MuiDialog-paper.project-preview { margin: 10px; width: calc(100% - 20px); }
+  .preview-heading, .preview-body { padding: 12px; }
+}
