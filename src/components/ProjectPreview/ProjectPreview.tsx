@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
@@ -9,11 +9,16 @@ import type { projects } from "../../data";
 import "./ProjectPreview.css";
 
 type Release = { version?: string; date: string | null; note: string };
-type Preview = { media: string[]; versions: (Release | string | null)[] };
+type Media = { src: string; poster?: string };
+type Preview = { media: Media[]; versions: (Release | string | null)[] };
 
 const previews: Record<string, Preview> = {
   "Jada-Mod-Manager": {
-    media: ["/projects/jada/jada.webp", "/projects/jada/jada-v2.webp", "/projects/jada/jada-suggestion.webp"],
+    media: [
+      { src: "/projects/jada/jada.webp" },
+      { src: "/projects/jada/jada-v2.webp" },
+      { src: "/projects/jada/jada-suggestion.webp" },
+    ],
     versions: [
       { version: "1", date: "2024-10-22", note: "Select mods to install. Jada extracts their files and places them in the game folders." },
       { version: "2", date: "2025-01-20", note: "Choose a game from a visual library, switch between games, or add another game from the same screen." },
@@ -21,7 +26,7 @@ const previews: Record<string, Preview> = {
     ],
   },
   "Password-Manager": {
-    media: ["/projects/password-manager/password-manager-demo-hd.mp4"],
+    media: [{ src: "/projects/password-manager/password-manager-demo-hd.mp4", poster: "/projects/password-manager/password-manager-poster.webp" }],
     versions: [
       { date: "2025-07-30", note: "Generate passwords with a chosen length and character types, then save, edit, or delete them locally." },
       { date: "2026-05-04", note: "Added a Copy button and displayed saved accounts and passwords in separate columns." },
@@ -32,15 +37,19 @@ const previews: Record<string, Preview> = {
     ],
   },
   "Unknown-Pixel": {
-    media: ["/projects/unknown-pixel/unknown-pixel-old.webp", "/projects/unknown-pixel/unknown-pixel.webp", "/projects/unknown-pixel/unknown-pixel-video.mp4"],
+    media: [
+      { src: "/projects/unknown-pixel/unknown-pixel-old.webp" },
+      { src: "/projects/unknown-pixel/unknown-pixel.webp" },
+      { src: "/projects/unknown-pixel/unknown-pixel-video.mp4", poster: "/projects/unknown-pixel/unknown-pixel-poster.webp" },
+    ],
     versions: ["2025-08-10", "2026-02-10"],
   },
   "Violet-Player": {
-    media: ["/projects/violet-player/violet-player.webp"],
+    media: [{ src: "/projects/violet-player/violet-player.webp" }],
     versions: ["2026-07-15"],
   },
   EchoDeck: {
-    media: ["/projects/echodeck/EchoDeck-Feature-Tour.mp4"],
+    media: [{ src: "/projects/echodeck/EchoDeck-Feature-Tour.mp4", poster: "/projects/echodeck/echodeck-poster.webp" }],
     versions: [
       { version: "3.6.3", date: "2026-11-25", note: "The master volume slider now brightens on keyboard focus. The per-song gain slider keeps its teal underline." },
       { version: "3.6.2", date: "2026-11-23", note: "Shuffle scrolls directly to the chosen track. Closing Lyrics brings the current track back into view." },
@@ -72,14 +81,60 @@ const previews: Record<string, Preview> = {
   },
 };
 
+function PreviewMedia({ media, placeholder, label }: {
+  media: Media;
+  placeholder: string;
+  label: string;
+}) {
+  const { t } = useTranslation();
+  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const ready = () => setStatus("ready");
+  const failed = () => setStatus("error");
+
+  return (
+    <div className="preview-media" data-state={status} aria-busy={status === "loading"}>
+      <img className="preview-placeholder" src={placeholder} alt="" aria-hidden="true" />
+      {media.src.endsWith(".mp4") ? (
+        <video className="preview-content" src={media.src} poster={media.poster ?? placeholder}
+          controls playsInline preload="metadata" aria-label={label}
+          onLoadedMetadata={ready} onError={failed} />
+      ) : (
+        <img className="preview-content" src={media.src} alt={label}
+          decoding="async" fetchPriority="high" onLoad={ready} onError={failed} />
+      )}
+      {status === "loading" && (
+        <div className="preview-loading" role="status">
+          <span className="preview-sr-only">{t("Loading preview")}</span>
+        </div>
+      )}
+      {status === "error" && (
+        <p className="preview-error" role="alert">{t("Could not load this preview.")}</p>
+      )}
+    </div>
+  );
+}
+
 export default function ProjectPreview({ project, onClose }: {
   project: (typeof projects)[number];
   onClose: () => void;
 }) {
   const { t, i18n } = useTranslation();
   const [index, setIndex] = useState(0);
-  const { media, versions } = previews[project.url] ?? { media: [project.image], versions: [] };
-  const src = media[index];
+  const preview = previews[project.url];
+  const media = preview?.media ?? [{ src: project.image }];
+  const versions = preview?.versions ?? [];
+  const currentMedia = media[index];
+  useEffect(() => {
+    for (const item of preview?.media ?? []) {
+      const imageSrc = item.poster ?? (!item.src.endsWith(".mp4") ? item.src : undefined);
+      if (imageSrc) {
+        const image = new Image();
+        image.decoding = "async";
+        image.fetchPriority = "low";
+        image.src = imageSrc;
+      }
+    }
+  }, [preview]);
   const dateFormat = new Intl.DateTimeFormat(i18n.language, {
     day: "2-digit",
     month: "short",
@@ -105,11 +160,8 @@ export default function ProjectPreview({ project, onClose }: {
         <IconButton onClick={onClose} aria-label={t("Close")} color="inherit"><CloseIcon /></IconButton>
       </header>
       <div className="preview-body">
-        <div className="preview-media">
-          {src.endsWith(".mp4")
-            ? <video key={src} src={src} controls playsInline preload="metadata" aria-label={project.title} />
-            : <img src={src} alt={`${project.title} — ${t("Demonstration")} ${index + 1}`} />}
-        </div>
+        <PreviewMedia key={currentMedia.src} media={currentMedia} placeholder={project.image}
+          label={`${project.title} — ${t("Demonstration")} ${index + 1}`} />
         {media.length > 1 && (
           <div className="preview-navigation">
             <IconButton color="inherit" aria-label={t("Previous")} onClick={() => setIndex((index + media.length - 1) % media.length)}><ChevronLeft /></IconButton>

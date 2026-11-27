@@ -31,6 +31,8 @@ export default {
     "Previous": "Anterior",
     "Next": "Próximo",
     "Versions": "Versões",
+    "Loading preview": "Carregando prévia",
+    "Could not load this preview.": "Não foi possível carregar esta prévia.",
     "Select mods to install. Jada extracts their files and places them in the game folders.": "Selecione os mods para instalar. O Jada extrai os arquivos e os coloca nas pastas do jogo.",
     "Choose a game from a visual library, switch between games, or add another game from the same screen.": "Escolha um jogo na biblioteca visual, alterne entre jogos ou adicione outro pela mesma tela.",
     "Work in progress includes detecting game installation folders and updating Jada from within the app.": "Estão em desenvolvimento a detecção das pastas de instalação dos jogos e a atualização do Jada pelo próprio aplicativo.",
