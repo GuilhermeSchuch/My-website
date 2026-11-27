@@ -1920,6 +1920,12 @@ const companies = [
     image: "/companies/FCP.webp",
     link: "http://www.fcp.com.br"
   },
+  {
+    id: 3,
+    name: "800K",
+    image: "/companies/800k.png",
+    link: "https://www.linkedin.com/company/72642999/",
+  },
 ]
 
 export { projects, projectsBR, posts, postsBR, companies };
